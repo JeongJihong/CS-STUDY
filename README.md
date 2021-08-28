@@ -3,7 +3,7 @@
 
 ## Members
 
-- [송지연]
+- [송지연](https://github.com/Jiyeon526)
 - [정지홍](https://github.com/JeongJihong)
 
 
