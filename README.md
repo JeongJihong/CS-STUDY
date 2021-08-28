@@ -3,8 +3,8 @@
 
 ## Members
 
-- 송지연
-- 정지홍
+- [송지연]
+- [정지홍](https://github.com/JeongJihong)
 
 
 
