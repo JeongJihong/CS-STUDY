@@ -17,7 +17,7 @@
 
 :pencil2: [**GC란?**](#pencil2-GC란)
 
-:pencil2: Collection
+:pencil2: [**Collection**](#pencil2-collection)
 
 <br><br>
 
@@ -150,7 +150,7 @@
 - Map
   1. Hashtable : HashMap보다는 느리지만 동기화 지원. null 불가
   2. HashMap : 중복과 순서가 허용되지 않으며 null값이 올 수 있다.
+  3. TreeMap : 정렬된 순서대로 키(Key)와 값(Value)을 저장하여 검색이 빠름
   
-3. TreeMap : 정렬된 순서대로 키(Key)와 값(Value)을 저장하여 검색이 빠름
 
 <br>
