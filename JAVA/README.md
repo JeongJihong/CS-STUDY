@@ -19,6 +19,15 @@
 
 :pencil2: [**Collection**](#pencil2-collection)
 
+
+:pencil2: [**Annotation**](#pencil2-Annotation)
+
+:pencil2: [**Generic**](#pencil2-Generic)
+
+:pencil2: [**final keyword**](#pencil2-final-keyword)
+
+:pencil2: [**Access Modifier**](#pencil2-Access-Modifier)
+
 <br><br>
 
 <hr>
