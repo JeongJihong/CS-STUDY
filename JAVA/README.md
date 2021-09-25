@@ -28,6 +28,10 @@
 
 :pencil2: [**Access Modifier**](#pencil2-Access-Modifier)
 
+:pencil2: [**Wrapper Class**](#pencil2-Wrapper-class)
+
+:pencil2: [**Multi-Thread**](#pencil2-Multi-Thread)
+
 <br><br>
 
 <hr>
@@ -218,3 +222,56 @@
    - 동일 패키지내의 클래스 또는 해당 클래스를 상속받은 외부 패키지의 클래스에서 접근이 가능
 4. public
    - 어떤 클래스에서라도 접근이 가능
+
+
+
+### :pencil2: Wrapper class
+
+- 8개의 기본 타입(Primitive data type)에 해당하는 데이터를 객체로 포장해 주는 클래스를 래퍼 클래스(Wrapper class)라고 한다.
+
+| 기본 타입 | 래퍼 클래스 |
+| --------- | ----------- |
+| byte      | Byte        |
+| short     | Short       |
+| int       | Integer     |
+| long      | Long        |
+| float     | Float       |
+| double    | Double      |
+| char      | Character   |
+| boolean   | Boolean     |
+
+
+
+- 기본 타입의 데이터를 래퍼 클래스의 인스턴스로 변환하는 과정을 박싱(Boxing), 래퍼 클래스의 인스턴스에 저장된 값을 다시 기본 타입의 데이터로 꺼내는 과정을 언박싱(UnBoxing)이라고 한다.
+- 사용 이유
+  1. 컬렉션에서 제네릭을 사용하기 위해서는 Wrapper class 를 사용해줘야 한다.
+  2. null 값을 반환해야만 하는 경우에는 return type 을 Wrapper class 로 지정하여 null을 반환하도록 할 수 있다.
+  3. 객체지향적인 프로그래밍을 위해서 사용한다.
+
+
+
+### :pencil2: Multi-Thread
+
+- 멀티 스레드 : 한 프로그램 안에서 여러 작업(스레드)을 한번에 하는 것
+- 스레드 : 프로세스가 할당한 자원을 이용한 실행의 범위, Stack(임시저장공간)을 제외하고 나머지 메모리영역은 프로세스 내의 다른 스레드와 공유
+- 장점은 공유하고 있는 메모리 자원을 아낄 수 있고 통신의 부담이 적다. 하나의 스레드가 예외를 발생시키면 프로세스 자체가 종료될 수도 있어 다른 스레드에게 영향을 미친다
+
+#### **Field member**
+
+`필드(field)`란 클래스에 변수를 정의하는 공간을 의미한다. 이곳에 변수를 만들어두면 메소드 끼리 변수를 주고 받는 데 있어서 참조하기 쉬우므로 정말 편리한 공간 중 하나이다. 하지만 객체가 여러 스레드가 접근하는 싱글톤 객체라면 field 에서 상태값을 갖고 있으면 안된다. 모든 변수를 parameter 로 넘겨받고 return 하는 방식으로 코드를 구성해야 한다.
+
+#### **동기화(Synchronized)**
+
+- 스레드간 서로 공유하고 수정할 수 있는 data가 있는데 스레드간 동기화가 되지 않은 상태에서
+
+멀티스레드 프로그램을 돌리면, data의 안정성과 신뢰성을 보장할 수 없다.
+
+필드에 Collection 이 불가피하게 필요할 때는 어떠한 방법을 사용할까? Java 에서는 `synchronized` 키워드를 사용하여 스레드 간 race condition 을 통제한다. 이 키워드를 기반으로 구현된 Collection 들도 많이 존재한다. `List`를 대신하여 `Vector`를 사용할 수 있고, `Map`을 대신하여 `HashTable`을 사용할 수 있다. 하지만 이 Collection 들은 제공하는 API 가 적고 성능도 좋지 않다.
+
+기본적으로는 `Collections`라는 util 클래스에서 제공되는 static 메소드를 통해 이를 해결할 수 있다. `Collections.synchronizedList()`, `Collections.synchronizedSet()`, `Collections.synchronizedMap()` 등이 존재한다. JDK 1.7 부터는 `concurrent package`를 통해 `ConcurrentHashMap`이라는 구현체를 제공한다. Collections util 을 사용하는 것보다 `synchronized` 키워드가 적용된 범위가 좁아서 보다 좋은 성능을 낼 수 있는 자료구조이다.
+
+#### **ThreadLocal**
+
+스레드 사이에 간섭이 없어야 하는 데이터에 사용한다. 멀티스레드 환경에서는 클래스의 필드에 멤버를 추가할 수 없고 매개변수로 넘겨받아야 하기 때문이다. 즉, 스레드 내부의 싱글톤을 사용하기 위해 사용한다. 주로 사용자 인증, 세션 정보, 트랜잭션 컨텍스트에 사용한다.
+
+스레드 풀 환경에서 ThreadLocal 을 사용하는 경우 ThreadLocal 변수에 보관된 데이터의 사용이 끝나면 반드시 해당 데이터를 삭제해 주어야 한다. 그렇지 않을 경우 재사용되는 쓰레드가 올바르지 않은 데이터를 참조할 수 있다.
