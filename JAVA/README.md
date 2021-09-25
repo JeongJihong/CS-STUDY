@@ -190,15 +190,23 @@
 
 |타입|설명|
 |---|-------|
-|<T>|Type|
-|<E>|Element|
-|<K>|Key|
-|<V>|Value|
-|<N>|Number|
+|T|Type|
+|E|Element|
+|K|Key|
+|V|Value|
+|N|Number|
 
 <br>
 
 ## :pencil2: final keyword
+- final class
+다른 클래스에서 상속하지 못한다.
+
+- final method
+다른 메소드에서 오버라이딩하지 못한다.
+
+- final variable
+변하지 않는 상수값이 되어 새로 할당할 수 없는 변수가 된다.
 
 <br>
 
