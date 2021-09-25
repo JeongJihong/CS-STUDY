@@ -199,15 +199,22 @@
 <br>
 
 ## :pencil2: final keyword
-- final class
-다른 클래스에서 상속하지 못한다.
 
-- final method
-다른 메소드에서 오버라이딩하지 못한다.
+- final class: 다른 클래스에서 상속하지 못한다.
 
-- final variable
-변하지 않는 상수값이 되어 새로 할당할 수 없는 변수가 된다.
+- final method: 다른 메소드에서 오버라이딩하지 못한다.
+
+- final variable: 변하지 않는 상수값이 되어 새로 할당할 수 없는 변수가 된다.
 
 <br>
 
 ## :pencil2: Access Modifier
+
+1. private
+   - 해당 클래스에서만 접근이 가능
+2. default
+   -  해당 패키지 내에서만 접근이 가능
+3. protected
+   - 동일 패키지내의 클래스 또는 해당 클래스를 상속받은 외부 패키지의 클래스에서 접근이 가능
+4. public
+   - 어떤 클래스에서라도 접근이 가능
